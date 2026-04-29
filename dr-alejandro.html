@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Alejandro Ortiz Obregón, M.D. | Medicina Integrativa y Bienestar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Avenir:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* CSS Variables - Dr. Alejandro Branding */
+        :root {
+            --carbon: #141414;
+            --ivory: #F5F0E8;
+            --copper: #D97A43;
+            --blue-criterion: #24495A;
+            --green-mineral: #556B5D;
+            --plum-smoke: #625468;
+            --gray-mist: #D8D8D2;
+            --white-clean: #FFFFFF;
+            
+            --font-primary: 'Avenir', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--carbon);
+            background-color: var(--ivory);
+            line-height: 1.6;
+            letter-spacing: 0.3px;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            background: var(--white-clean);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--gray-mist);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(20, 20, 20, 0.05);
+        }
+
+        .logo-text {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--carbon);
+            letter-spacing: 0.5px;
+        }
+
+        .language-toggle {
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: var(--gray-mist);
+            color: var(--carbon);
+            cursor: pointer;
+            font-family: var(--font-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--copper);
+            color: var(--white-clean);
+        }
+
+        .lang-btn:hover {
+            opacity: 0.8;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--carbon) 0%, var(--blue-criterion) 100%);
+            color: var(--white-clean);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background: rgba(217, 122, 67, 0.1);
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-logo {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 2rem;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--carbon);
+            font-weight: 700;
+        }
+
+        section .section-intro {
+            font-size: 1.1rem;
+            color: var(--blue-criterion);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            max-width: 750px;
+        }
+
+        .content-block {
+            color: var(--carbon);
+            line-height: 1.8;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        .content-block h3 {
+            font-size: 1.3rem;
+            color: var(--blue-criterion);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .content-block p {
+            margin-bottom: 1rem;
+        }
+
+        /* ===== SPECIALTIES SECTION ===== */
+        .specialties {
+            background: var(--white-clean);
+            border-top: 1px solid var(--gray-mist);
+            border-bottom: 1px solid var(--gray-mist);
+        }
+
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .specialty-card {
+            padding: 2.5rem;
+            background: linear-gradient(135deg, rgba(245, 240, 232, 0.5) 0%, rgba(217, 122, 67, 0.05) 100%);
+            border: 1px solid var(--gray-mist);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .specialty-card:hover {
+            border-color: var(--copper);
+            box-shadow: 0 8px 20px rgba(217, 122, 67, 0.1);
+        }
+
+        .specialty-card h3 {
+            font-size: 1.1rem;
+            color: var(--blue-criterion);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .specialty-card p {
+            color: var(--carbon);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ===== MODALITIES SECTION ===== */
+        .modalities {
+            background: var(--white-clean);
+        }
+
+        .modalities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .modality-card {
+            padding: 3rem 2rem;
+            background: var(--ivory);
+            border-left: 4px solid var(--copper);
+            border-radius: 2px;
+            text-align: center;
+        }
+
+        .modality-card h3 {
+            font-size: 1.3rem;
+            color: var(--carbon);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .modality-card p {
+            color: var(--carbon);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--blue-criterion) 0%, var(--carbon) 100%);
+            color: var(--white-clean);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: var(--white-clean);
+            margin-bottom: 2rem;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .whatsapp-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin: 2rem 0;
+            padding: 1.2rem 2.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--copper);
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-link:hover {
+            background: var(--copper);
+            color: var(--white-clean);
+        }
+
+        .whatsapp-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .whatsapp-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--copper);
+        }
+
+        .whatsapp-link:hover .whatsapp-text {
+            color: var(--white-clean);
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2.5rem;
+            background: var(--copper);
+            color: var(--white-clean);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--copper);
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--copper);
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            background: var(--carbon);
+            color: var(--white-clean);
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: var(--white-clean);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .contact-item h3 {
+            color: var(--copper);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .contact-item p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0a0a0a;
+            color: var(--gray-mist);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--carbon);
+        }
+
+        footer a {
+            color: var(--copper);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== HIDDEN CONTENT ===== */
+        .hidden {
+            display: none;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            section h2 {
+                font-size: 1.6rem;
+            }
+
+            .specialties-grid,
+            .modalities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-link {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="logo-text" id="logo-text-en" class="lang-content">Dr. Alejandro Ortiz Obregón, M.D.</div>
+        <div class="logo-text hidden" id="logo-text-es" class="lang-content">Dr. Alejandro Ortiz Obregón, M.D.</div>
+        <div class="language-toggle">
+            <button class="lang-btn active" data-lang="es" onclick="setLanguage('es')">ES</button>
+            <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
+        </div>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="logo-ale.svg" alt="Dr. Alejandro Ortiz Obregón" class="hero-logo">
+            
+            <!-- Spanish Content -->
+            <div id="hero-es" class="lang-content">
+                <p>Médico especializado en metabolismo, medicina preventiva y bienestar integral. Treinta años de experiencia clínica al servicio de la transformación real.</p>
+            </div>
+
+            <!-- English Content -->
+            <div id="hero-en" class="lang-content hidden">
+                <p>Physician specialized in metabolism, preventive medicine, and integral wellness. Thirty years of clinical experience serving real transformation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section>
+        <!-- Spanish Content -->
+        <div id="about-es" class="lang-content">
+            <h2>Treinta Años Observando</h2>
+            
+            <div class="content-block">
+                <p>El Dr. Alejandro Ortiz Obregón es médico especializado en metabolismo y medicina preventiva. Pero esos 30 años no fueron solo recetas. Fueron observación profunda.</p>
+                
+                <p>Observó a pacientes que sufren bajo el peso de kilos extras. Vio el dolor físico, la ansiedad ante el espejo, la fatiga que limita cada movimiento, el estrés que acompaña cada decisión de comida. Presenció cómo la obesidad no es simplemente un número en la balanza: es una carga emocional, física y psicológica que afecta la calidad de vida en cada aspecto.</p>
+
+                <p>Pero su experiencia clínica va más allá de la medicina bariátrica. Ha trabajado con pacientes que enfrentan dolor crónico, ansiedad que paraliza, fatiga que consume la energía de vivir, estrés que deteriora la salud desde adentro. Entiende que la medicina moderna no puede tratar solo el síntoma. Debe ver a la persona completa.</p>
+
+                <p>Una idea cristalizó después de décadas: la verdadera transformación no viene de fórmulas mágicas ni de promesas rápidas. Viene de conocimiento, método, seguimiento consistente y decisiones bien tomadas. Viene de entender que cada persona es un universo complejo que merece un enfoque igualmente profundo.</p>
+            </div>
+        </div>
+
+        <!-- English Content -->
+        <div id="about-en" class="lang-content hidden">
+            <h2>Thirty Years of Observation</h2>
+            
+            <div class="content-block">
+                <p>Dr. Alejandro Ortiz Obregón is a physician specialized in metabolism and preventive medicine. But those 30 years were not just prescriptions. They were deep observation.</p>
+                
+                <p>He observed patients suffering under the weight of extra kilos. He saw physical pain, anxiety before the mirror, fatigue that limits every movement, stress that accompanies every food decision. He witnessed how obesity is not simply a number on the scale: it is an emotional, physical, and psychological burden that affects quality of life in every aspect.</p>
+
+                <p>But his clinical experience goes beyond bariatric medicine. He has worked with patients facing chronic pain, anxiety that paralyzes, fatigue that drains the energy to live, stress that deteriorates health from within. He understands that modern medicine cannot treat only the symptom. It must see the complete person.</p>
+
+                <p>One idea crystallized after decades: true transformation does not come from magic formulas or quick promises. It comes from knowledge, method, consistent follow-up, and well-made decisions. It comes from understanding that each person is a complex universe that deserves an equally profound approach.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SPECIALTIES SECTION ===== -->
+    <section class="specialties">
+        <!-- Spanish Content -->
+        <div id="specialties-es" class="lang-content">
+            <h2>Áreas de Especialidad</h2>
+            <p class="section-intro">Experiencia clínica profunda en múltiples dimensiones de la salud humana.</p>
+            
+            <div class="specialties-grid">
+                <div class="specialty-card">
+                    <h3>Metabolismo y Peso</h3>
+                    <p>Enfoque integral de la obesidad y el sobrepeso como condición médica compleja. No solo números: transformación real de la salud metabólica.</p>
+                </div>
+                <div class="specialty-card">
+                    <h3>Riesgo Cardiometabólico</h3>
+                    <p>Identificación, monitoreo y manejo de diabetes, resistencia a la insulina, hipertensión y síndrome metabólico.</p>
+                </div>
+                <div class="specialty-card">
+                    <h3>Dolor Crónico</h3>
+                    <p>Comprensión integral del dolor como fenómeno biopsicosocial. Estrategias médicas y acompañamiento para vivir mejor.</p>
+                </div>
+                <div class="specialty-card">
+                    <h3>Ansiedad y Estrés</h3>
+                    <p>Abordaje clínico de la ansiedad y el estrés crónico. Herramientas médicas y educativas para recuperar equilibrio.</p>
+                </div>
+                <div class="specialty-card">
+                    <h3>Fatiga y Energía</h3>
+                    <p>Análisis de causas de fatiga crónica. Optimización metabólica para recuperar vitalidad y capacidad funcional.</p>
+                </div>
+                <div class="specialty-card">
+                    <h3>Medicina Preventiva</h3>
+                    <p>Estrategias de prevención y optimización de la salud. Desde hábitos hasta análisis de riesgo personalizado.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- English Content -->
+        <div id="specialties-en" class="lang-content hidden">
+            <h2>Areas of Specialty</h2>
+            <p class="section-intro">Deep clinical experience across multiple dimensions of human health.</p>
+            
+            <div class="specialties-grid">
+                <div class="specialty-card">
+                    <h3>Metabolism and Weight</h3>
+                    <p>Integral approach to obesity and overweight as a complex medical condition. Not just numbers: real transformation of metabolic health.</p>
+                </div>
+                <div class="specialty-card">
+                    <h3>Cardiometabolic Risk</h3>
+                    <p>Identification, monitoring, and management of diabetes, insulin resistance, hypertension, and metabolic syndrome.</p>
+                </div>
+                <div class="specialty-card">
+                    <h3>Chronic Pain</h3>
+                    <p>Comprehensive understanding of pain as a biopsychosocial phenomenon. Medical strategies and support for living better.</p>
+                </div>
+                <div class="specialty-card">
+                    <h3>Anxiety and Stress</h3>
+                    <p>Clinical approach to anxiety and chronic stress. Medical and educational tools to recover balance.</p>
+                </div>
+                <div class="specialty-card">
+                    <h3>Fatigue and Energy</h3>
+                    <p>Analysis of chronic fatigue causes. Metabolic optimization to recover vitality and functional capacity.</p>
+                </div>
+                <div class="specialty-card">
+                    <h3>Preventive Medicine</h3>
+                    <p>Strategies for prevention and health optimization. From habits to personalized risk analysis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MODALITIES SECTION ===== -->
+    <section class="modalities">
+        <!-- Spanish Content -->
+        <div id="modalities-es" class="lang-content">
+            <h2>Modalidades de Atención</h2>
+            <p class="section-intro">Flexibilidad en cómo accedes a atención médica de calidad.</p>
+            
+            <div class="modalities-grid">
+                <div class="modality-card">
+                    <h3>🏥 Consulta Presencial</h3>
+                    <p>Consulta privada en Centro Médico Almirante Colón, Bogotá</p>
+                </div>
+                <div class="modality-card">
+                    <h3>💻 Consulta Virtual</h3>
+                    <p>Desde dónde usted esté. Atención mediante plataforma de Telemedicina segura, encriptada con los más altos estándares. Y sobre todo fácil de usar desde su propio teléfono, tablet o computador personal.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- English Content -->
+        <div id="modalities-en" class="lang-content hidden">
+            <h2>Care Modalities</h2>
+            <p class="section-intro">Flexibility in how you access quality medical care.</p>
+            
+            <div class="modalities-grid">
+                <div class="modality-card">
+                    <h3>🏥 In-Person Consultation</h3>
+                    <p>Private consultation at Centro Médico Almirante Colón, Bogotá</p>
+                </div>
+                <div class="modality-card">
+                    <h3>💻 Virtual Consultation</h3>
+                    <p>From wherever you are. Secure, encrypted telemedicine platform with the highest standards. And most importantly, easy to use from your own phone, tablet, or personal computer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="cta-section">
+        <!-- Spanish Content -->
+        <div id="cta-es" class="lang-content">
+            <h2>Solicitar Consulta</h2>
+            <div class="cta-content">
+                <p>Elige la modalidad que mejor se ajuste a ti y comienza tu proceso de transformación real.</p>
+                
+                <a href="https://wa.me/573152992021?text=Hola%20Dr.%20Alejandro%2C%20me%20gustaría%20agendar%20una%20consulta" class="whatsapp-link" target="_blank">
+                    <span class="whatsapp-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.6915026,12.4744748 C17.5625,11.6599598 16.5570397,11.0151496 15.3399899,10.8006248 C14.8124706,10.7115147 14.1624706,10.5396211 12.5599899,11.3966879 C11.2799899,12.0926075 10.197489,13.4359212 9.8474891,14.1274348 C9.4749706,14.8526218 9.13495854,16.0151391 10.4146707,16.978484 C11.6943827,17.9418288 12.8568827,17.4293239 13.3718827,17.1366348 C13.8868827,16.8439458 15.4968827,15.9366416 15.8493827,15.6939522 C16.2018827,15.4512628 16.4343827,15.3399899 16.6668827,15.5849525 C16.8993827,15.8299151 17.5625,16.5460253 17.7200255,16.7881618 C17.8775511,17.0302982 18.0275511,16.9275574 18.2596067,16.8235848 C18.4916624,16.7196121 19.4416624,16.2071072 19.7941624,16.0151391 C20.1466624,15.8231711 20.3791624,15.7271871 20.5366879,15.5349088 C20.6942135,15.3426305 20.6942135,14.9496507 20.5652011,14.1374009 M12,0 C5.373,0 0,5.373 0,12 C0,18.627 5.373,24 12,24 C18.627,24 24,18.627 24,12 C24,5.373 18.627,0 12,0 Z" fill="#25D366"/>
+                        </svg>
+                    </span>
+                    <span class="whatsapp-text">+57 315 299 2021</span>
+                </a>
+
+                <br>
+
+                <a href="https://agenda.saludtools.com/oqMskB" class="cta-button" target="_blank">Autoagendamiento</a>
+            </div>
+        </div>
+
+        <!-- English Content -->
+        <div id="cta-en" class="lang-content hidden">
+            <h2>Request Consultation</h2>
+            <div class="cta-content">
+                <p>Choose the modality that best fits you and begin your process of real transformation.</p>
+                
+                <a href="https://wa.me/573152992021?text=Hello%20Dr.%20Alejandro%2C%20I%20would%20like%20to%20schedule%20a%20consultation" class="whatsapp-link" target="_blank">
+                    <span class="whatsapp-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.6915026,12.4744748 C17.5625,11.6599598 16.5570397,11.0151496 15.3399899,10.8006248 C14.8124706,10.7115147 14.1624706,10.5396211 12.5599899,11.3966879 C11.2799899,12.0926075 10.197489,13.4359212 9.8474891,14.1274348 C9.4749706,14.8526218 9.13495854,16.0151391 10.4146707,16.978484 C11.6943827,17.9418288 12.8568827,17.4293239 13.3718827,17.1366348 C13.8868827,16.8439458 15.4968827,15.9366416 15.8493827,15.6939522 C16.2018827,15.4512628 16.4343827,15.3399899 16.6668827,15.5849525 C16.8993827,15.8299151 17.5625,16.5460253 17.7200255,16.7881618 C17.8775511,17.0302982 18.0275511,16.9275574 18.2596067,16.8235848 C18.4916624,16.7196121 19.4416624,16.2071072 19.7941624,16.0151391 C20.1466624,15.8231711 20.3791624,15.7271871 20.5366879,15.5349088 C20.6942135,15.3426305 20.6942135,14.9496507 20.5652011,14.1374009 M12,0 C5.373,0 0,5.373 0,12 C0,18.627 5.373,24 12,24 C18.627,24 24,18.627 24,12 C24,5.373 18.627,0 12,0 Z" fill="#25D366"/>
+                        </svg>
+                    </span>
+                    <span class="whatsapp-text">+57 315 299 2021</span>
+                </a>
+
+                <br>
+
+                <a href="https://agenda.saludtools.com/oqMskB" class="cta-button" target="_blank">Book Appointment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="contact">
+        <!-- Spanish Content -->
+        <div id="contact-es" class="lang-content">
+            <h2>Contacto</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>WhatsApp</h3>
+                        <p><a href="https://wa.me/573152992021" target="_blank">+57 315 299 2021</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Dirección (Bogotá)</h3>
+                        <p>Carrera 16 # 84A-09<br>Consultorio 520<br>Bogotá, DC 110221<br>Colombia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- English Content -->
+        <div id="contact-en" class="lang-content hidden">
+            <h2>Contact</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>WhatsApp</h3>
+                        <p><a href="https://wa.me/573152992021" target="_blank">+57 315 299 2021</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Address (Bogotá)</h3>
+                        <p>Carrera 16 # 84A-09<br>Office 520<br>Bogotá, DC 110221<br>Colombia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <!-- Spanish Content -->
+        <div id="footer-es" class="lang-content">
+            <p>&copy; 2026 Dr. Alejandro Ortiz Obregón, M.D. Todos los derechos reservados.</p>
+        </div>
+
+        <!-- English Content -->
+        <div id="footer-en" class="lang-content hidden">
+            <p>&copy; 2026 Dr. Alejandro Ortiz Obregón, M.D. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ===== LANGUAGE TOGGLE SCRIPT ===== -->
+    <script>
+        // Get user's preferred language
+        function getPreferredLanguage() {
+            const saved = localStorage.getItem('preferred-language');
+            if (saved) return saved;
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('en')) return 'en';
+            return 'es'; // Default to Spanish
+        }
+
+        // Set active language
+        function setLanguage(lang) {
+            localStorage.setItem('preferred-language', lang);
+            
+            // Hide all content
+            document.querySelectorAll('.lang-content').forEach(el => {
+                el.classList.add('hidden');
+            });
+            
+            // Show selected language
+            document.querySelectorAll(`[id$="-${lang}"]`).forEach(el => {
+                el.classList.remove('hidden');
+            });
+            
+            // Update button states
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const preferredLang = getPreferredLanguage();
+            setLanguage(preferredLang);
+        });
+    </script>
+</body>
+</html>
